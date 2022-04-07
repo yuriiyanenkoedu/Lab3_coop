@@ -9,6 +9,24 @@ namespace Laba_3_coop
 {
     class Program
     {
+        struct Student
+        {
+            public string surName;
+            public string firstName;
+            public string patronymic;
+            public char sex;
+            public string dateOfBirth;
+            public char mathematicsMark;
+            public char physicsMark;
+            public char informaticsMark;
+            public int scholarship;
+
+            public Student(string lineWithAllData)
+            {
+                // TODO   you SHOULD IMPLEMENT constructor with exactly this signature
+                // lineWithAllData is string contating all data about one student, as described in statement
+            }
+        }
         static void Main(string[] args)
         {
             Console.WriteLine("Task 2, what variant are you want: 10, 12 or 17?\nTo exit enter '0'");
@@ -37,6 +55,24 @@ namespace Laba_3_coop
                         }
                 }
             } while (variant != 0);
+
+        }
+        static Student[] ReadData(string fileName)
+        {
+            // TODO   implement this method.
+            // It should read the file whose fileName has been passed and fill 
+        }
+
+        static void runMenu(Student[] studs)
+        {
+            // TODO   implement this method
+            // It should call method(s) for concrete variant(s)
+        }
+
+        static void Main(string[] args)
+        {
+            Student[] studs = ReadData("input.txt");
+            runMenu(studs);
         }
     }
 }
