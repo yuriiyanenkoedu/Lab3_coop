@@ -21,8 +21,18 @@ namespace Laba_3_coop
             public char informaticsMark;
             public int scholarship;
 
-            public Student(string lineWithAllData)
+            public Student(string[] lineWithAllData)
             {
+                
+                surName = lineWithAllData[0];
+                firstName = lineWithAllData[1];
+                patronymic = lineWithAllData[2];
+                sex = char.Parse(lineWithAllData[3]);
+                dateOfBirth = lineWithAllData[4];
+                mathematicsMark = char.Parse(lineWithAllData[5]);
+                physicsMark = char.Parse(lineWithAllData[6]);
+                informaticsMark = char.Parse(lineWithAllData[7]);
+                scholarship = int.Parse(lineWithAllData[8]);
                 // TODO   you SHOULD IMPLEMENT constructor with exactly this signature
                 // lineWithAllData is string contating all data about one student, as described in statement
             }
