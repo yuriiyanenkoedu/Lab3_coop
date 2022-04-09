@@ -27,7 +27,13 @@ namespace Laba_3_coop
                 // lineWithAllData is string contating all data about one student, as described in statement
             }
         }
-        static void Main(string[] args)
+        static Student[] ReadData(string fileName)
+        {
+            // TODO   implement this method.
+            // It should read the file whose fileName has been passed and fill 
+        }
+
+        static void runMenu(Student[] studs)
         {
             Console.WriteLine("Task 2, what variant are you want: 10, 12 or 17?\nTo exit enter '0'");
             int variant;
@@ -55,18 +61,6 @@ namespace Laba_3_coop
                         }
                 }
             } while (variant != 0);
-
-        }
-        static Student[] ReadData(string fileName)
-        {
-            // TODO   implement this method.
-            // It should read the file whose fileName has been passed and fill 
-        }
-
-        static void runMenu(Student[] studs)
-        {
-            // TODO   implement this method
-            // It should call method(s) for concrete variant(s)
         }
 
         static void Main(string[] args)
