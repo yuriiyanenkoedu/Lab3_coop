@@ -21,26 +21,29 @@ namespace Laba_3_coop
             public char informaticsMark;
             public int scholarship;
 
-            public Student(string[] lineWithAllData)
+            public Student(string lineWithAllData)
             {
-                
-                surName = lineWithAllData[0];
-                firstName = lineWithAllData[1];
-                patronymic = lineWithAllData[2];
-                sex = char.Parse(lineWithAllData[3]);
-                dateOfBirth = lineWithAllData[4];
-                mathematicsMark = char.Parse(lineWithAllData[5]);
-                physicsMark = char.Parse(lineWithAllData[6]);
-                informaticsMark = char.Parse(lineWithAllData[7]);
-                scholarship = int.Parse(lineWithAllData[8]);
-                // TODO   you SHOULD IMPLEMENT constructor with exactly this signature
-                // lineWithAllData is string contating all data about one student, as described in statement
+                string[] data = lineWithAllData.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+                surName = data[0];
+                firstName = data[1];
+                patronymic = data[2];
+                sex = char.Parse(data[3]);
+                dateOfBirth = data[4];
+                mathematicsMark = char.Parse(data[5]);
+                physicsMark = char.Parse(data[6]);
+                informaticsMark = char.Parse(data[7]);
+                scholarship = int.Parse(data[8]);
             }
         }
         static Student[] ReadData(string fileName)
         {
-            // TODO   implement this method.
-            // It should read the file whose fileName has been passed and fill 
+            string[] fileData = File.ReadAllLines(fileName);
+            Student[] resStud = new Student[fileData.Length];
+            for (int i = 0; i < fileData.Length; i++)
+            {
+                resStud[i] = new Student(fileData[i]);
+            }
+            return resStud;
         }
 
         static void runMenu(Student[] studs)
