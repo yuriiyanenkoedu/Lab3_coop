@@ -45,7 +45,6 @@ namespace Laba_3_coop
             }
             return resStud;
         }
-
         static void runMenu(Student[] studs)
         {
             Console.WriteLine("Task 2, what variant are you want: 10, 12 or 17?\nTo exit enter '0'");
@@ -75,7 +74,6 @@ namespace Laba_3_coop
                 }
             } while (variant != 0);
         }
-
         static void Main(string[] args)
         {
             Student[] studs = ReadData("input.txt");
