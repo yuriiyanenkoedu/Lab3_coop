@@ -56,7 +56,7 @@ namespace Laba_3_coop
                 {
                     case 10:
                         {
-                            OutputStud(studs, StudWithAv(studs));
+                            
                             break;
                         }
                     case 12:
@@ -65,6 +65,7 @@ namespace Laba_3_coop
                         }
                     case 17:
                         {
+                            OutputStud(studs, StudWithAv(studs));
                             break;
                         }
                     default:
@@ -79,7 +80,6 @@ namespace Laba_3_coop
         {
             Student[] studs = ReadData("input.txt");
             runMenu(studs);
-            
         }
         static double Average(Student stud)
         {
@@ -113,9 +113,30 @@ namespace Laba_3_coop
         }
         static void OutputStud(Student[] stud, int[] arr)
         {
-            for (int i = 0; i < arr.Length; i++)
+            Console.WriteLine("Type of output");
+            byte typeofuot = byte.Parse(Console.ReadLine());
+            switch(typeofuot)
             {
-                Console.WriteLine("Student: {0} {1} {2}, average mark: {3}", stud[arr[i]].surName, stud[arr[i]].firstName, stud[arr[i]].patronymic, Math.Round(Average(stud[arr[i]]), 1));
+                case 1:
+                    {
+                        for (int i = 0; i < arr.Length; i++)
+                        {   
+                           Console.WriteLine("Student: {0} {1} {2}, average mark: {3}", stud[arr[i]].surName, stud[arr[i]].firstName, stud[arr[i]].patronymic, Math.Round(Average(stud[arr[i]]), 1));
+                        }
+                        break;
+                    }
+                case 2:
+                    {
+                        string text = "output.txt";
+                        for (int i = 0; i < arr.Length; i++)
+                        {
+                            using (StreamWriter st = new StreamWriter(text, true))
+                            {
+                                st.WriteLine("Student: {0} {1} {2}, average mark: {3}", stud[arr[i]].surName, stud[arr[i]].firstName, stud[arr[i]].patronymic, Math.Round(Average(stud[arr[i]]), 1));
+                            }
+                        }
+                        break;
+                    }
             }
         }
     }
