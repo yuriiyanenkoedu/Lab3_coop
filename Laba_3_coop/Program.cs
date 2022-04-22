@@ -56,6 +56,7 @@ namespace Laba_3_coop
                 {
                     case 10:
                         {
+                            OutputStud(studs, StudWithAv(studs));
                             break;
                         }
                     case 12:
@@ -78,6 +79,44 @@ namespace Laba_3_coop
         {
             Student[] studs = ReadData("input.txt");
             runMenu(studs);
+            
+        }
+        static double Average(Student stud)
+        {
+            if (stud.physicsMark == '-')
+                stud.physicsMark = '2';
+            if (stud.mathematicsMark == '-')
+                stud.mathematicsMark = '2';
+            if (stud.informaticsMark == '-')
+                stud.informaticsMark = '2';
+            string s1 = stud.informaticsMark.ToString();
+            string s2 = stud.mathematicsMark.ToString();
+            string s3 = stud.physicsMark.ToString();
+            double aver = double.Parse(s1) + double.Parse(s2) + double.Parse(s3);
+            aver /= 3;
+            return aver;
+        }
+        static int[] StudWithAv(Student[] stud)
+        {
+            int[] arr = new int[stud.Length];
+            int count = 0;
+            for (int i = 0; i < stud.Length; i++)
+            {
+                if (Average(stud[i]) > 4.5)
+                {
+                    arr[count] = i;
+                    count++;
+                }
+            }
+            Array.Resize(ref arr, count);
+            return arr;
+        }
+        static void OutputStud(Student[] stud, int[] arr)
+        {
+            for (int i = 0; i < arr.Length; i++)
+            {
+                Console.WriteLine("Student: {0} {1} {2}, average mark: {3}", stud[arr[i]].surName, stud[arr[i]].firstName, stud[arr[i]].patronymic, Math.Round(Average(stud[arr[i]]), 1));
+            }
         }
     }
 }
