@@ -127,65 +127,11 @@ namespace Laba_3_coop
                     }
                 case 2:
                     {
-                        string text = "output.txt";
                         for (int i = 0; i < arr.Length; i++)
                         {
-                            using (StreamWriter st = new StreamWriter(text, true))
+                            using (StreamWriter st = new StreamWriter("output.txt", true))
                             {
                                 st.WriteLine("Student: {0} {1} {2}, average mark: {3}", stud[arr[i]].surName, stud[arr[i]].firstName, stud[arr[i]].patronymic, Math.Round(Average(stud[arr[i]]), 1));
-                            }
-                        }
-                        break;
-                    }
-            }
-        }
-        static double Step(Student[] stud)
-        {
-            int[] arr = new int[stud.Length];
-            int count = 0;
-            for (int i = 0; i < arr.Length; i++)
-            {
-                if (stud[arr[i]].scholarship > 0)
-                {
-                    count += stud[arr[i]].scholarship;
-                }
-            }
-            int sbt = count * (2 / 10);
-            int st = 0;
-            for (int i = 0; i < arr.Length; i++)
-            {
-                if (stud[arr[i]].scholarship < count - sbt)
-                {
-                    st = stud[arr[i]].scholarship;
-                    Console.WriteLine(st);
-                }
-            }
-            return st;
-        }
-
-        static void OutputSt(Student[] stud, int[] arr)
-        {
-
-            Console.WriteLine("Type of output");
-            byte typeofuot = byte.Parse(Console.ReadLine());
-            switch (typeofuot)
-            {
-                case 1:
-                    {
-                        for (int i = 0; i < arr.Length; i++)
-                        {
-                            Console.WriteLine("Student: {0} {1} {2}, average mark: {3}", stud[arr[i]].surName, stud[arr[i]].firstName, stud[arr[i]].scholarship, Math.Round(Step(stud), 1));
-                        }
-                        break;
-                    }
-                case 2:
-                    {
-                        string text = "output.txt";
-                        for (int i = 0; i < arr.Length; i++)
-                        {
-                            using (StreamWriter st = new StreamWriter(text, true))
-                            {
-                                st.WriteLine("Student: {0} {1} {2}, average mark: {3}", stud[arr[i]].surName, stud[arr[i]].firstName, stud[arr[i]].scholarship, Math.Round(Step(stud), 1));
                             }
                         }
                         break;
