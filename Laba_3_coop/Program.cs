@@ -61,6 +61,7 @@ namespace Laba_3_coop
                         }
                     case 12:
                         {
+                            OutputSt(studs, StudArr(studs));
                             break;
                         }
                     case 17:
@@ -139,7 +140,7 @@ namespace Laba_3_coop
                     }
             }
         }
-        static double Step(Student[] stud)
+        static int[] StudArr(Student[] stud)
         {
             int[] arr = new int[stud.Length];
             int count = 0;
@@ -160,8 +161,22 @@ namespace Laba_3_coop
                     Console.WriteLine(st);
                 }
             }
+            Array.Resize(ref arr, count);
+            return arr;
+        }
+        static double Step(Student stud)
+        {
+            int count=100;
+            double sbt=0.2*count;
+            string s = stud.scholarship.ToString();
+            double st = double.Parse(s);
+            if(st<= count - sbt)
+            {
+                Console.WriteLine(st); 
+            }
             return st;
         }
+
 
         static void OutputSt(Student[] stud, int[] arr)
         {
@@ -174,7 +189,7 @@ namespace Laba_3_coop
                     {
                         for (int i = 0; i < arr.Length; i++)
                         {
-                            Console.WriteLine("Student: {0} {1} {2}, average mark: {3}", stud[arr[i]].surName, stud[arr[i]].firstName, stud[arr[i]].scholarship, Math.Round(Step(stud), 1));
+                            Console.WriteLine("Student: {0} {1} {2}, average mark: {3}", stud[arr[i]].surName, stud[arr[i]].firstName, stud[arr[i]].scholarship, Math.Round(Step(stud[arr[i]]), 1));
                         }
                         break;
                     }
@@ -185,7 +200,7 @@ namespace Laba_3_coop
                         {
                             using (StreamWriter st = new StreamWriter(text, true))
                             {
-                                st.WriteLine("Student: {0} {1} {2}, average mark: {3}", stud[arr[i]].surName, stud[arr[i]].firstName, stud[arr[i]].scholarship, Math.Round(Step(stud), 1));
+                                st.WriteLine("Student: {0} {1} {2}, average mark: {3}", stud[arr[i]].surName, stud[arr[i]].firstName, stud[arr[i]].scholarship, Math.Round(Step(stud[arr[i]]), 1));
                             }
                         }
                         break;
