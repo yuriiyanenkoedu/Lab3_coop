@@ -129,11 +129,12 @@ namespace Laba_3_coop
                 case 2:
                     {
                         string text = "output.txt";
-                        for (int i = 0; i < arr.Length; i++)
+
+                        using (StreamWriter st1 = new StreamWriter(text, false))
                         {
-                            using (StreamWriter st = new StreamWriter(text, true))
+                            for (int i = 0; i < arr.Length; i++)
                             {
-                                st.WriteLine("Student: {0} {1} {2}, average mark: {3}", stud[arr[i]].surName, stud[arr[i]].firstName, stud[arr[i]].patronymic, Math.Round(Average(stud[arr[i]]), 1));
+                                st1.WriteLine("Student: {0} {1} {2}, average mark: {3}", stud[arr[i]].surName, stud[arr[i]].firstName, stud[arr[i]].patronymic, Math.Round(Average(stud[arr[i]]), 1));
                             }
                         }
                         break;
