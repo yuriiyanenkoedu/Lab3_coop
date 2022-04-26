@@ -150,16 +150,16 @@ namespace Laba_3_coop
             {
                 if (stud[i].scholarship > 0)
                 {
-                    count += stud[arr[i]].scholarship;
+                    count += stud[i].scholarship;
                     kol++;
                 }
             }
             int sb = count / kol; //середнє
-            int sbt = sb * (2 / 10); //0,2 від середнього
+            double sbt = sb * 0.2; //0,2 від середнього
             int kol1 = 0;
             for (int i = 0; i < stud.Length; i++)
             {
-                if (stud[i].scholarship < sb - sbt)
+                if (stud[i].scholarship > 0 && stud[i].scholarship < sb - sbt)
                 {
                     arr[kol1] = i;
                     kol1++;
