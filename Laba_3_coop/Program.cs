@@ -145,37 +145,28 @@ namespace Laba_3_coop
         {
             int[] arr = new int[stud.Length];
             int count = 0;
-            for (int i = 0; i < arr.Length; i++)
+            int kol = 0;
+            for (int i = 0; i < stud.Length; i++)
             {
-                if (stud[arr[i]].scholarship > 0)
+                if (stud[i].scholarship > 0)
                 {
                     count += stud[arr[i]].scholarship;
+                    kol++;
                 }
             }
-            int sbt = count * (2 / 10);
-            int st = 0;
-            for (int i = 0; i < arr.Length; i++)
+            int sb = count / kol; //середнє
+            int sbt = sb * (2 / 10); //0,2 від середнього
+            int kol1 = 0;
+            for (int i = 0; i < stud.Length; i++)
             {
-                if (stud[arr[i]].scholarship < count - sbt)
+                if (stud[i].scholarship < sb - sbt)
                 {
-                    st = stud[arr[i]].scholarship;
-                    Console.WriteLine(st);
+                    arr[kol1] = i;
+                    kol1++;
                 }
             }
-            Array.Resize(ref arr, count);
+            Array.Resize(ref arr, kol1);
             return arr;
-        }
-        static double Step(Student stud)
-        {
-            int count=100;
-            double sbt=0.2*count;
-            string s = stud.scholarship.ToString();
-            double st = double.Parse(s);
-            if(st<= count - sbt)
-            {
-                Console.WriteLine(st); 
-            }
-            return st;
         }
 
 
@@ -190,7 +181,7 @@ namespace Laba_3_coop
                     {
                         for (int i = 0; i < arr.Length; i++)
                         {
-                            Console.WriteLine("Student: {0} {1} {2}, average mark: {3}", stud[arr[i]].surName, stud[arr[i]].firstName, stud[arr[i]].scholarship, Math.Round(Step(stud[arr[i]]), 1));
+                            Console.WriteLine("Student: {0} {1} {2}", stud[arr[i]].surName, stud[arr[i]].firstName, stud[arr[i]].patronymic);
                         }
                         break;
                     }
@@ -201,7 +192,7 @@ namespace Laba_3_coop
                         {
                             using (StreamWriter st = new StreamWriter(text, true))
                             {
-                                st.WriteLine("Student: {0} {1} {2}, average mark: {3}", stud[arr[i]].surName, stud[arr[i]].firstName, stud[arr[i]].scholarship, Math.Round(Step(stud[arr[i]]), 1));
+                                st.WriteLine("Student: {0} {1} {2}", stud[arr[i]].surName, stud[arr[i]].firstName, stud[arr[i]].patronymic);
                             }
                         }
                         break;

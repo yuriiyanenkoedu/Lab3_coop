@@ -5,3 +5,10 @@ D:\проекти VS\Палм 2 сем\Laba_3_coop\Laba_3_coop\obj\Debug\Laba_3_
 D:\проекти VS\Палм 2 сем\Laba_3_coop\Laba_3_coop\obj\Debug\Laba_3_coop.csproj.CoreCompileInputs.cache
 D:\проекти VS\Палм 2 сем\Laba_3_coop\Laba_3_coop\obj\Debug\Laba_3_coop.exe
 D:\проекти VS\Палм 2 сем\Laba_3_coop\Laba_3_coop\obj\Debug\Laba_3_coop.pdb
+D:\Lab3_coop-master\Laba_3_coop\bin\Debug\Laba_3_coop.exe.config
+D:\Lab3_coop-master\Laba_3_coop\bin\Debug\Laba_3_coop.exe
+D:\Lab3_coop-master\Laba_3_coop\bin\Debug\Laba_3_coop.pdb
+D:\Lab3_coop-master\Laba_3_coop\obj\Debug\Laba_3_coop.csproj.AssemblyReference.cache
+D:\Lab3_coop-master\Laba_3_coop\obj\Debug\Laba_3_coop.csproj.CoreCompileInputs.cache
+D:\Lab3_coop-master\Laba_3_coop\obj\Debug\Laba_3_coop.exe
+D:\Lab3_coop-master\Laba_3_coop\obj\Debug\Laba_3_coop.pdb
