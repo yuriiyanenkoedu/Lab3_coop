@@ -56,12 +56,19 @@ namespace Laba_3_coop
                 {
                     case 10:
                         {
+<<<<<<< HEAD
+                            OutputStud1(studs, SurnamesStudent(studs));
+=======
                             
+>>>>>>> b45de64d52a52fbcd1d76c4dfc5b41a16db6ca7f
                             break;
                         }
                     case 12:
                         {
+<<<<<<< HEAD
+=======
                             OutputSt(studs, StudArr(studs));
+>>>>>>> b45de64d52a52fbcd1d76c4dfc5b41a16db6ca7f
                             break;
                         }
                     case 17:
@@ -112,6 +119,71 @@ namespace Laba_3_coop
             Array.Resize(ref arr, count);
             return arr;
         }
+<<<<<<< HEAD
+        static int SatisfactoryEstimates(Student stud)
+        {
+            if (stud.physicsMark == '-' || stud.physicsMark == '2')
+                stud.physicsMark = '0';
+            if (stud.mathematicsMark == '-' || stud.mathematicsMark == '2')
+                stud.mathematicsMark = '0';
+            if (stud.informaticsMark == '-'|| stud.informaticsMark == '2')
+                stud.informaticsMark = '0';
+            string s1 = stud.informaticsMark.ToString();
+            string s2 = stud.mathematicsMark.ToString();
+            string s3 = stud.physicsMark.ToString();
+            int aver = int.Parse(s1)*int.Parse(s2)*int.Parse(s3);
+            return aver;
+        }
+        static int Shop(Student stud)
+        {
+            int ship = stud.scholarship;
+            return ship;
+        }
+        static int[] SurnamesStudent(Student[] stud)
+        {
+            int[] arr = new int[stud.Length];
+            int count = 0;
+            for(int i = 0; i<stud.Length; i++)
+            {
+                if(SatisfactoryEstimates(stud[i]) > 0 && Shop(stud[i])==0)
+                {
+                    arr[count] = i;
+                    count++;
+                }
+            }
+            Array.Resize(ref arr, count);
+            return arr;
+        }
+        static void OutputStud1(Student[] stud, int[] arr)
+        {
+            Console.WriteLine("Type of output");
+            byte typeofuot = byte.Parse(Console.ReadLine());
+            switch (typeofuot)
+            {
+                case 1:
+                    {
+                        for (int i = 0; i < arr.Length; i++)
+                        {
+                            Console.WriteLine($"Student: {stud[arr[i]].surName}");
+                        }
+                        break;
+                    }
+                case 2:
+                    {
+                        string text = "output.txt";
+                        for (int i = 0; i < arr.Length; i++)
+                        {
+                            using (StreamWriter st = new StreamWriter(text, true))
+                            {
+                                st.WriteLine($"Student: {stud[arr[i]].surName}");
+                            }
+                        }
+                        break;
+                    }
+            }
+        }
+=======
+>>>>>>> b45de64d52a52fbcd1d76c4dfc5b41a16db6ca7f
         static void OutputStud(Student[] stud, int[] arr)
         {
             Console.WriteLine("Type of output");
@@ -129,6 +201,13 @@ namespace Laba_3_coop
                 case 2:
                     {
                         string text = "output.txt";
+<<<<<<< HEAD
+                        for (int i = 0; i < arr.Length; i++)
+                        {
+                            using (StreamWriter st = new StreamWriter(text, true))
+                            {
+                                st.WriteLine("Student: {0} {1} {2}, average mark: {3}", stud[arr[i]].surName, stud[arr[i]].firstName, stud[arr[i]].patronymic, Math.Round(Average(stud[arr[i]]), 1));
+=======
 
                         using (StreamWriter st1 = new StreamWriter(text, false))
                         {
@@ -195,6 +274,7 @@ namespace Laba_3_coop
 
                                 st.WriteLine("Student: {0} {1} {2}", stud[arr[i]].surName, stud[arr[i]].firstName, stud[arr[i]].patronymic);
 
+>>>>>>> b45de64d52a52fbcd1d76c4dfc5b41a16db6ca7f
                             }
                         }
                         break;
