@@ -56,19 +56,12 @@ namespace Laba_3_coop
                 {
                     case 10:
                         {
-<<<<<<< HEAD
                             OutputStud1(studs, SurnamesStudent(studs));
-=======
-                            
->>>>>>> b45de64d52a52fbcd1d76c4dfc5b41a16db6ca7f
                             break;
                         }
                     case 12:
                         {
-<<<<<<< HEAD
-=======
                             OutputSt(studs, StudArr(studs));
->>>>>>> b45de64d52a52fbcd1d76c4dfc5b41a16db6ca7f
                             break;
                         }
                     case 17:
@@ -119,7 +112,6 @@ namespace Laba_3_coop
             Array.Resize(ref arr, count);
             return arr;
         }
-<<<<<<< HEAD
         static int SatisfactoryEstimates(Student stud)
         {
             if (stud.physicsMark == '-' || stud.physicsMark == '2')
@@ -182,8 +174,6 @@ namespace Laba_3_coop
                     }
             }
         }
-=======
->>>>>>> b45de64d52a52fbcd1d76c4dfc5b41a16db6ca7f
         static void OutputStud(Student[] stud, int[] arr)
         {
             Console.WriteLine("Type of output");
@@ -201,13 +191,6 @@ namespace Laba_3_coop
                 case 2:
                     {
                         string text = "output.txt";
-<<<<<<< HEAD
-                        for (int i = 0; i < arr.Length; i++)
-                        {
-                            using (StreamWriter st = new StreamWriter(text, true))
-                            {
-                                st.WriteLine("Student: {0} {1} {2}, average mark: {3}", stud[arr[i]].surName, stud[arr[i]].firstName, stud[arr[i]].patronymic, Math.Round(Average(stud[arr[i]]), 1));
-=======
 
                         using (StreamWriter st1 = new StreamWriter(text, false))
                         {
@@ -274,7 +257,6 @@ namespace Laba_3_coop
 
                                 st.WriteLine("Student: {0} {1} {2}", stud[arr[i]].surName, stud[arr[i]].firstName, stud[arr[i]].patronymic);
 
->>>>>>> b45de64d52a52fbcd1d76c4dfc5b41a16db6ca7f
                             }
                         }
                         break;
