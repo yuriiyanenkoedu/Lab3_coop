@@ -56,11 +56,19 @@ namespace Laba_3_coop
                 {
                     case 10:
                         {
+<<<<<<< HEAD
                             OutputStud1(studs, SurnamesStudent(studs));
+=======
+                            
+>>>>>>> b45de64d52a52fbcd1d76c4dfc5b41a16db6ca7f
                             break;
                         }
                     case 12:
                         {
+<<<<<<< HEAD
+=======
+                            OutputSt(studs, StudArr(studs));
+>>>>>>> b45de64d52a52fbcd1d76c4dfc5b41a16db6ca7f
                             break;
                         }
                     case 17:
@@ -111,6 +119,7 @@ namespace Laba_3_coop
             Array.Resize(ref arr, count);
             return arr;
         }
+<<<<<<< HEAD
         static int SatisfactoryEstimates(Student stud)
         {
             if (stud.physicsMark == '-' || stud.physicsMark == '2')
@@ -173,6 +182,8 @@ namespace Laba_3_coop
                     }
             }
         }
+=======
+>>>>>>> b45de64d52a52fbcd1d76c4dfc5b41a16db6ca7f
         static void OutputStud(Student[] stud, int[] arr)
         {
             Console.WriteLine("Type of output");
@@ -190,11 +201,80 @@ namespace Laba_3_coop
                 case 2:
                     {
                         string text = "output.txt";
+<<<<<<< HEAD
                         for (int i = 0; i < arr.Length; i++)
                         {
                             using (StreamWriter st = new StreamWriter(text, true))
                             {
                                 st.WriteLine("Student: {0} {1} {2}, average mark: {3}", stud[arr[i]].surName, stud[arr[i]].firstName, stud[arr[i]].patronymic, Math.Round(Average(stud[arr[i]]), 1));
+=======
+
+                        using (StreamWriter st1 = new StreamWriter(text, false))
+                        {
+                            for (int i = 0; i < arr.Length; i++)
+                            {
+                                st1.WriteLine("Student: {0} {1} {2}, average mark: {3}", stud[arr[i]].surName, stud[arr[i]].firstName, stud[arr[i]].patronymic, Math.Round(Average(stud[arr[i]]), 1));
+                            }
+                        }
+                        break;
+                    }
+            }
+        }
+        static int[] StudArr(Student[] stud)
+        {
+            int[] arr = new int[stud.Length];
+            int count = 0;
+            int kol = 0;
+            for (int i = 0; i < stud.Length; i++)
+            {
+                if (stud[i].scholarship > 0)
+                {
+                    count += stud[i].scholarship;
+                    kol++;
+                }
+            }
+            int sb = count / kol; //середнє
+            double sbt = sb * 0.2; //0,2 від середнього
+            int kol1 = 0;
+            for (int i = 0; i < stud.Length; i++)
+            {
+                if (stud[i].scholarship > 0 && stud[i].scholarship < sb - sbt)
+                {
+                    arr[kol1] = i;
+                    kol1++;
+                }
+            }
+            Array.Resize(ref arr, kol1);
+            return arr;
+        }
+
+
+        static void OutputSt(Student[] stud, int[] arr)
+        {
+
+            Console.WriteLine("Type of output");
+            byte typeofuot = byte.Parse(Console.ReadLine());
+            switch (typeofuot)
+            {
+                case 1:
+                    {
+                        for (int i = 0; i < arr.Length; i++)
+                        {
+                            Console.WriteLine("Student: {0} {1} {2}", stud[arr[i]].surName, stud[arr[i]].firstName, stud[arr[i]].patronymic);
+                        }
+                        break;
+                    }
+                case 2:
+                    {
+                        string text = "output.txt";
+                        using (StreamWriter st = new StreamWriter(text, false))
+                        {
+                            for (int i = 0; i < arr.Length; i++)
+                            {
+
+                                st.WriteLine("Student: {0} {1} {2}", stud[arr[i]].surName, stud[arr[i]].firstName, stud[arr[i]].patronymic);
+
+>>>>>>> b45de64d52a52fbcd1d76c4dfc5b41a16db6ca7f
                             }
                         }
                         break;
