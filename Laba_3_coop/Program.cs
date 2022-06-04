@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
 
 namespace Laba_3_coop
@@ -40,9 +36,7 @@ namespace Laba_3_coop
             string[] fileData = File.ReadAllLines(fileName);
             Student[] resStud = new Student[fileData.Length];
             for (int i = 0; i < fileData.Length; i++)
-            {
                 resStud[i] = new Student(fileData[i]);
-            }
             return resStud;
         }
         static void runMenu(Student[] studs)
@@ -66,7 +60,7 @@ namespace Laba_3_coop
                         }
                     case 17:
                         {
-                            OutputStud(studs, StudWithAv(studs));
+                            OutputStud(studs);
                             break;
                         }
                     default:
@@ -82,6 +76,7 @@ namespace Laba_3_coop
             Student[] studs = ReadData("input.txt");
             runMenu(studs);
         }
+        // 17 варіант
         static double Average(Student stud)
         {
             if (stud.physicsMark == '-')
@@ -93,25 +88,9 @@ namespace Laba_3_coop
             string s1 = stud.informaticsMark.ToString();
             string s2 = stud.mathematicsMark.ToString();
             string s3 = stud.physicsMark.ToString();
-            double aver = double.Parse(s1) + double.Parse(s2) + double.Parse(s3);
-            aver /= 3;
-            return aver;
+            return (double.Parse(s1) + double.Parse(s2) + double.Parse(s3))/3;
         }
-        static int[] StudWithAv(Student[] stud)
-        {
-            int[] arr = new int[stud.Length];
-            int count = 0;
-            for (int i = 0; i < stud.Length; i++)
-            {
-                if (Average(stud[i]) > 4.5)
-                {
-                    arr[count] = i;
-                    count++;
-                }
-            }
-            Array.Resize(ref arr, count);
-            return arr;
-        }
+        // кінець 17 варіанту
         static int SatisfactoryEstimates(Student stud)
         {
             if (stud.physicsMark == '-' || stud.physicsMark == '2')
@@ -174,34 +153,11 @@ namespace Laba_3_coop
                     }
             }
         }
-        static void OutputStud(Student[] stud, int[] arr)
+        static void OutputStud(Student[] stud)
         {
-            Console.WriteLine("Type of output");
-            byte typeofuot = byte.Parse(Console.ReadLine());
-            switch(typeofuot)
-            {
-                case 1:
-                    {
-                        for (int i = 0; i < arr.Length; i++)
-                        {   
-                           Console.WriteLine("Student: {0} {1} {2}, average mark: {3}", stud[arr[i]].surName, stud[arr[i]].firstName, stud[arr[i]].patronymic, Math.Round(Average(stud[arr[i]]), 1));
-                        }
-                        break;
-                    }
-                case 2:
-                    {
-                        string text = "output.txt";
-
-                        using (StreamWriter st1 = new StreamWriter(text, false))
-                        {
-                            for (int i = 0; i < arr.Length; i++)
-                            {
-                                st1.WriteLine("Student: {0} {1} {2}, average mark: {3}", stud[arr[i]].surName, stud[arr[i]].firstName, stud[arr[i]].patronymic, Math.Round(Average(stud[arr[i]]), 1));
-                            }
-                        }
-                        break;
-                    }
-            }
+             for (int i = 0; i < stud.Length; i++)
+                if(Average(stud[i]) > 4.5)
+                Console.WriteLine("Student: {0} {1} {2}, average mark: {3}", stud[i].surName, stud[i].firstName, stud[i].patronymic, Math.Round(Average(stud[i]), 1));
         }
         static int[] StudArr(Student[] stud)
         {
@@ -242,9 +198,7 @@ namespace Laba_3_coop
                 case 1:
                     {
                         for (int i = 0; i < arr.Length; i++)
-                        {
                             Console.WriteLine("Student: {0} {1} {2}", stud[arr[i]].surName, stud[arr[i]].firstName, stud[arr[i]].patronymic);
-                        }
                         break;
                     }
                 case 2:
@@ -253,11 +207,7 @@ namespace Laba_3_coop
                         using (StreamWriter st = new StreamWriter(text, false))
                         {
                             for (int i = 0; i < arr.Length; i++)
-                            {
-
                                 st.WriteLine("Student: {0} {1} {2}", stud[arr[i]].surName, stud[arr[i]].firstName, stud[arr[i]].patronymic);
-
-                            }
                         }
                         break;
                     }
